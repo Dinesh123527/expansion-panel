@@ -1,0 +1,37 @@
+<div class = "panel">
+  <mat-expansion-panel *ngFor="let value of panelStem">
+		<mat-expansion-panel-header>
+			{{value.naming}}
+		</mat-expansion-panel-header>
+    <mat-tab-group #allTabs [selectedIndex]="value.selectedIndex">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon *ngIf="!value.doc_valid" class="example-tab-icon">attach_file</mat-icon>
+          <mat-icon *ngIf="value.doc_valid" class="example-tab-iconblue">attach_file</mat-icon>
+          Documents
+        </ng-template>
+        <p><app-document (changeTab)="changeTab(value.id)" (childButtonEvent)="receivedMessageHandler($event,value.id)"></app-document></p>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon *ngIf="!value.emer_valid" class="example-tab-icon">call</mat-icon>
+          <mat-icon *ngIf="value.emer_valid" class="example-tab-iconblue">call</mat-icon>
+          Emergency Contact
+        </ng-template>
+        <p><app-emergency-contact (changeTab)="changeTabEmergency(value.id)" (childButtonEvent)="receivedEmergencyHandler($event,value.id)"></app-emergency-contact></p>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon *ngIf="!value.trace_valid" class="example-tab-icon">near_me</mat-icon>
+          <mat-icon *ngIf="value.trace_valid" class="example-tab-iconblue">near_me</mat-icon>
+          Contact Tracing
+        </ng-template>
+        <p><app-contact-tracing (changeTab)="changeTabContact(value.id)" (childButtonEvent)="receivedTracingHandler($event,value.id)"></app-contact-tracing></p>
+      </mat-tab>
+    </mat-tab-group>
+	</mat-expansion-panel>
+</div>
+
+
+
+

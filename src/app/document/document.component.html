@@ -1,0 +1,19 @@
+<div class="container">
+ <form class="container" [formGroup]="documentForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline" required>
+    <mat-label>First Name</mat-label>
+    <input matInput placeholder="First Name" formControlName="firstName" required (keyup)="clickHandler()">
+  </mat-form-field>
+  <mat-form-field appearance="outline" required>
+    <mat-label>Last Name</mat-label>
+    <input matInput placeholder="Last Name" formControlName="lastName" required (keyup)="clickHandler()">
+  </mat-form-field>
+  <mat-form-field appearance="outline" required>
+    <mat-label>Document Number</mat-label>
+    <input matInput placeholder="Document No" formControlName="documentNo" required (keyup)="clickHandler()">
+  </mat-form-field>
+  <button mat-raised-button color="warn" [disabled] = "!documentForm.valid">Submit</button>
+ </form>
+</div>
+
+

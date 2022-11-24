@@ -1,0 +1,21 @@
+<div class="container">
+  <form class="container" [formGroup]="contactTracingForm" (ngSubmit)="onSubmit()">
+   <mat-form-field appearance="outline" required>
+     <mat-label>First Name</mat-label>
+     <input matInput placeholder="First Name" formControlName="firstName" required (keyup)="clickHandler()">
+   </mat-form-field>
+   <mat-form-field appearance="outline" required>
+     <mat-label>Last Name</mat-label>
+     <input matInput placeholder="Last Name" formControlName="lastName" required (keyup)="clickHandler()">
+   </mat-form-field>
+   <mat-form-field appearance="outline" required>
+     <mat-label>Enter Primary Contact Number</mat-label>
+     <input matInput placeholder="Enter the Country" formControlName="primaryPhoneNo" required (keyup)="clickHandler()">
+   </mat-form-field>
+   <mat-form-field appearance="outline" required>
+    <mat-label>Enter Secondary Contact Number</mat-label>
+    <input matInput placeholder="Enter the Phone NO" formControlName="secondaryPhoneNo" required (keyup)="clickHandler()">
+   </mat-form-field>
+   <button mat-raised-button color="warn" [disabled] = "!contactTracingForm.valid">Submit</button>
+  </form>
+ </div>
